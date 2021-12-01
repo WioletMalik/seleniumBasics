@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,17 +27,24 @@ public class orangeHRM {
 	@Test
 	public void login() {
 
+		Actions action = new Actions(wd);
+		
 		WebElement userName = wd.findElement(By.id("txtUsername"));
 		WebElement password = wd.findElement(By.id("txtPassword"));
 		WebElement loginButton = wd.findElement(By.id("btnLogin"));
-		WebElement dropDown = wd.findElement(By.cssSelector("a#welcome"));
-
-		Select select = new Select(dropDown);
-
 		userName.sendKeys("Admin");
 		password.sendKeys("admin123");
 		loginButton.submit();
-		select.selectByVisibleText("Logout");
+		
+		WebElement userProfile = wd.findElement(By.xpath("//a[@id='welcome']"));
+		WebElement logOut = wd.findElement(By.cssSelector("ul>li:nth-child(3)>a"));
+		userProfile.click();
+		action.moveToElement(logOut).perform();
+		logOut.click();
 
+	}
+	
+	public void tearDown() {
+		wd.quit();
 	}
 }
