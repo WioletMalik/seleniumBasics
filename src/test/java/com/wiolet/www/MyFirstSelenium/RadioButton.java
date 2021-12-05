@@ -29,14 +29,17 @@ public class RadioButton {
 	public void clickCheckBox() {
 
 		WebElement radioButton = wd.findElement(By.id("item-2"));
+		
 
 		radioButton.click();
 
 		WebElement yes = wd.findElement(By.xpath("//label[@for='yesRadio']"));
-
+		
+		
 		yes.click();
 
 		WebElement text = wd.findElement(By.cssSelector("p.mt-3"));
+		
 		String print = text.getText();
 		System.out.println(print);
 	}

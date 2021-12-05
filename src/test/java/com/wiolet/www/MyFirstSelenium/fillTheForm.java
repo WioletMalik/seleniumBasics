@@ -38,11 +38,13 @@ public class fillTheForm {
 		select.selectByIndex(1);
 		WebElement email = wd.findElement(By.id("email"));
 		WebElement order = wd.findElement(By.id("id_order"));
+		WebElement chooseFile = wd.findElement(By.id("fileUpload"));
 		WebElement message = wd.findElement(By.id("message"));
 		WebElement send = wd.findElement(By.cssSelector("#submitMessage>span"));
 		email.sendKeys("wiolet@gmail.com");
 		order.sendKeys("abc321");
 		message.sendKeys("Order update pls");
+		chooseFile.sendKeys("/Users/wioletginotra/Desktop");
 		send.click();
 		WebElement customerServiceMessage = wd.findElement(By.cssSelector("#center_column>p"));
 		String text = customerServiceMessage.getText();

@@ -37,9 +37,9 @@ public class orangeHRM {
 		loginButton.submit();
 		
 		WebElement userProfile = wd.findElement(By.xpath("//a[@id='welcome']"));
-		WebElement logOut = wd.findElement(By.cssSelector("ul>li:nth-child(3)>a"));
 		userProfile.click();
-		action.moveToElement(logOut).perform();
+		WebElement logOut = wd.findElement(By.cssSelector("ul>li:nth-child(3)>a"));
+		//action.moveToElement(logOut).perform();
 		logOut.click();
 
 	}
