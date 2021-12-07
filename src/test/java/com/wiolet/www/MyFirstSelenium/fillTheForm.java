@@ -35,7 +35,6 @@ public class fillTheForm {
 		contact.click();
 		WebElement subject = wd.findElement(By.id("id_contact"));
 		Select select = new Select(subject);
-		select.selectByIndex(1);
 		WebElement email = wd.findElement(By.id("email"));
 		WebElement order = wd.findElement(By.id("id_order"));
 		WebElement chooseFile = wd.findElement(By.id("fileUpload"));

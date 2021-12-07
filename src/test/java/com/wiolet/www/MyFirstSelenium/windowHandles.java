@@ -54,6 +54,11 @@ public class windowHandles {
 		System.out.println("Text on userAdmin:" + Text);
 
 		wd.switchTo().window(mainWindowHandle);
+		
+		WebElement userProfile = wd.findElement(By.xpath("//a[@id='welcome']"));
+		userProfile.click();
+		WebElement logOut = wd.findElement(By.cssSelector("ul>li:nth-child(3)>a"));
+		logOut.click();
 
 	}
 

@@ -27,23 +27,20 @@ public class orangeHRM {
 	@Test
 	public void login() {
 
-		Actions action = new Actions(wd);
-		
 		WebElement userName = wd.findElement(By.id("txtUsername"));
 		WebElement password = wd.findElement(By.id("txtPassword"));
 		WebElement loginButton = wd.findElement(By.id("btnLogin"));
 		userName.sendKeys("Admin");
 		password.sendKeys("admin123");
 		loginButton.submit();
-		
+
 		WebElement userProfile = wd.findElement(By.xpath("//a[@id='welcome']"));
 		userProfile.click();
-		WebElement logOut = wd.findElement(By.cssSelector("ul>li:nth-child(3)>a"));
-		//action.moveToElement(logOut).perform();
+		WebElement logOut = wd.findElement(By.cssSelector("#welcome-menu > ul > li:nth-child(3)"));
 		logOut.click();
 
 	}
-	
+
 	public void tearDown() {
 		wd.quit();
 	}
