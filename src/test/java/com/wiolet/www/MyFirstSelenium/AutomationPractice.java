@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -33,7 +34,7 @@ public class AutomationPractice {
 		signin.click();
 
 		WebElement email = wd.findElement(By.id("email_create"));
-		email.sendKeys("pivot@gmail.com");
+		email.sendKeys("pademy@gmail.com");
 
 		WebElement createAccount = wd.findElement(By.id("SubmitCreate"));
 		createAccount.click();
@@ -48,7 +49,7 @@ public class AutomationPractice {
 		lastName.sendKeys("Malik");
 
 		WebElement fillemail = wd.findElement(By.id("email"));
-		fillemail.sendKeys("pivot@gmail.com");
+		// fillemail.sendKeys("pacademy@gmail.com");
 
 		WebElement password = wd.findElement(By.id("passwd"));
 		password.sendKeys("password");
@@ -86,7 +87,7 @@ public class AutomationPractice {
 		selectState.selectByIndex(4);
 
 		WebElement postalCode = wd.findElement(By.id("postcode"));
-		postalCode.sendKeys("3456789");
+		postalCode.sendKeys("34567");
 
 		WebElement country = wd.findElement(By.id("id_country"));
 		Select selectCountry = new Select(country);
@@ -99,12 +100,13 @@ public class AutomationPractice {
 		alias.sendKeys("My Address");
 
 		WebElement register = wd.findElement(By.id("submitAccount"));
-		register.submit();
+		// register.submit();
 
 	}
 
+	@AfterMethod
 	public void tearDown() {
-		 wd.quit();
+		// wd.quit();
 	}
 
 }

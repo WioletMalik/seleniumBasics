@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,9 +37,7 @@ public class StudentRegistrationForm {
 		WebElement firstName = wd.findElement(By.id("firstName"));
 		WebElement lastName = wd.findElement(By.id("lastName"));
 		WebElement email = wd.findElement(By.id("userEmail"));
-		WebElement firstRadioButton = wd.findElement(By.cssSelector("label[for='gender-radio-1']"));
 		WebElement secondRadioButton = wd.findElement(By.cssSelector("label[for='gender-radio-2']"));
-		WebElement thirdRadioButton = wd.findElement(By.cssSelector("label[for='gender-radio-3']"));
 		WebElement mobileNumber = wd.findElement(By.id("userNumber"));
 
 		firstName.sendKeys("wiolet");
@@ -46,9 +45,6 @@ public class StudentRegistrationForm {
 		email.sendKeys("wiolet@gmail.com");
 		secondRadioButton.click();
 		mobileNumber.sendKeys("5647834678");
-
-		String monthYear = "October	2022";
-		String date = "01";
 
 		WebElement datePicker = wd.findElement(By.id("dateOfBirthInput"));
 		datePicker.click();
@@ -76,9 +72,6 @@ public class StudentRegistrationForm {
 
 		WebElement checkBoxOne = wd.findElement(By.cssSelector("label[for='hobbies-checkbox-1']"));
 
-		WebElement checkBoxTwo = wd.findElement(By.cssSelector("label[for='hobbies-checkbox-2']"));
-		WebElement checkBoxThree = wd.findElement(By.cssSelector("label[for='hobbies-checkbox-2']"));
-
 		checkBoxOne.click();
 
 		JavascriptExecutor jse = (JavascriptExecutor) wd;
@@ -103,6 +96,7 @@ public class StudentRegistrationForm {
 
 	}
 
+	@AfterMethod
 	public void tearDown() {
 
 		wd.quit();
